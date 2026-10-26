@@ -485,8 +485,3 @@ body {
     grid-column: 1 / -1;
   }
 }
-
-/* 无分页表格：卡片底部不再是“表格 → 分页”的分隔线 */
-.fa-table-card:has(.fa-table.no-pagination) {
-  border-bottom-color: transparent !important;
-}
