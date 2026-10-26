@@ -4,7 +4,7 @@
   - 暴露 `elTableRef`、`scrollToTop`；formatter 列见 TableFormatterOutlet 注释。
 -->
 <template>
-  <div class="fa-table" :class="{ 'is-empty': isEmpty }">
+  <div class="fa-table" :class="{ 'is-empty': isEmpty, 'no-pagination': !showPagination }">
     <div class="fa-table__main">
       <!-- 初始加载骨架屏：仅在 loading 且无数据时显示 -->
       <div v-if="loading && isEmpty" class="fa-table-skeleton">
@@ -860,6 +860,11 @@ defineExpose({
 <style lang="scss" scoped>
 .fa-table {
   position: relative;
+  /* 无分页时不需要“表格 → 分页”的分隔线；最后一行的底边会形成多余横线 */
+  &.no-pagination :deep(.el-table__body tr:last-child td.el-table__cell) {
+    border-bottom-color: transparent !important;
+  }
+
   display: flex;
   flex: 1;
   flex-direction: column;
