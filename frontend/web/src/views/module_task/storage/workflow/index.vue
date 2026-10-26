@@ -394,7 +394,7 @@ function buildFlowRowActions(
 
 function formatFlowOperationCell(row: FlowTable, ctx: Parameters<typeof buildFlowRowActions>[1]) {
   return renderTableOperationCell(buildFlowRowActions(row, ctx), {
-    wrapperClass: "inline-flex flex-nowrap items-center justify-end gap-1 flow-table-actions",
+    wrapperClass: "inline-flex flex-wrap items-center justify-end gap-1 flow-table-actions",
   });
 }
 
