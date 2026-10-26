@@ -13,7 +13,6 @@ import {
   StorageConfig,
   applyTheme,
   generateThemeColors,
-  toggleDarkMode,
   toggleSidebarColor,
 } from "@utils";
 import { defaultSettings } from "@/config/setting";
@@ -142,7 +141,6 @@ export const useSettingsStore = defineStore(
       [theme, themeColor],
       ([newTheme, newThemeColor]) => {
         try {
-          toggleDarkMode(newTheme === ThemeMode.DARK);
           const colors = generateThemeColors(newThemeColor, newTheme);
           applyTheme(colors);
         } catch (error) {

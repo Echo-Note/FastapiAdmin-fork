@@ -74,7 +74,8 @@ export function useTheme() {
     const currentTheme = AppConfig.systemThemeStyles[theme as keyof SystemThemeTypes];
 
     if (currentTheme) {
-      el.setAttribute("class", currentTheme.className);
+      // 只切换 dark，不要用 setAttribute 清空 html 上的其他状态类
+      el.classList.toggle("dark", isDark);
     }
 
     // 设置按钮颜色加深或变浅
@@ -149,7 +150,7 @@ export function initializeTheme() {
     // 设置主题 class
     const currentTheme = AppConfig.systemThemeStyles[actualTheme as keyof SystemThemeTypes];
     if (currentTheme) {
-      el.setAttribute("class", currentTheme.className);
+      el.classList.toggle("dark", actualTheme === SystemThemeEnum.DARK);
     }
 
     // 设置主题颜色
