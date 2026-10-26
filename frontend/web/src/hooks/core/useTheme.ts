@@ -32,6 +32,7 @@
  */
 
 import { SystemThemeEnum } from "@/enums/appEnum";
+import { ThemeMode } from "@/enums/settings/theme.enum";
 import type { SystemThemeTypes } from "@/types/store";
 import { useSettingsStore } from "@stores";
 import AppConfig from "@/config";
@@ -141,6 +142,9 @@ export function initializeTheme() {
       // 更新实际应用的主题类型
       settingStore.systemThemeType = actualTheme;
     }
+
+    // 同步旧 theme 状态，避免持久化的旧值在刷新后覆盖当前主题
+    settingStore.theme = actualTheme === SystemThemeEnum.DARK ? ThemeMode.DARK : ThemeMode.LIGHT;
 
     // 设置主题 class
     const currentTheme = AppConfig.systemThemeStyles[actualTheme as keyof SystemThemeTypes];
