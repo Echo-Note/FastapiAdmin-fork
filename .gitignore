@@ -82,3 +82,4 @@ AGENTS.md
 backend/*.sql
 backend/sql/**/*.sql
 *.dump
+tmp
