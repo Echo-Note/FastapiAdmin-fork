@@ -660,7 +660,7 @@ const {
       {
         prop: "task_type",
         label: "类型",
-        width: 90,
+        width: 130,
         formatter: (row: FlowTable) =>
           h(
             ElTag,
@@ -675,7 +675,7 @@ const {
       {
         prop: "targets",
         label: "目标节点",
-        minWidth: 170,
+        minWidth: 220,
         formatter: (row: FlowTable) => {
           const targets = row.targets || [];
           if (targets.length === 0) return "—";
