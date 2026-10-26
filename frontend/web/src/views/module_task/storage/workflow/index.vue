@@ -394,7 +394,7 @@ function buildFlowRowActions(
 
 function formatFlowOperationCell(row: FlowTable, ctx: Parameters<typeof buildFlowRowActions>[1]) {
   return renderTableOperationCell(buildFlowRowActions(row, ctx), {
-    wrapperClass: "inline-flex flex-wrap items-center justify-end gap-1 flow-table-actions",
+    wrapperClass: "inline-flex flex-wrap items-center justify-end gap-1 flow-table-actions align-middle",
   });
 }
 
@@ -751,7 +751,7 @@ const {
       {
         prop: "operation",
         label: "操作",
-        width: 210,
+        width: 200,
         fixed: "right",
         align: "center",
         formatter: (row: FlowTable) => formatFlowOperationCell(row, opCtx),
